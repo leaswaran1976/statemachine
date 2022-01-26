@@ -1,5 +1,7 @@
 package org.acndemo.statemachine;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -18,6 +20,11 @@ public class StateMachineService {
     @Inject
     public StateMachineService(StateMachineRepository smrep) {
         this.repo = smrep;
+    }
+
+    @GET
+    public List<StateMachineRecord> list() {
+        return repo.listAll();
     }
 
     @GET
